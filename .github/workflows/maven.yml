@@ -1,5 +1,3 @@
-name: Java CI with Maven and JaCoCo
-
 on:
   push:
     branches:
