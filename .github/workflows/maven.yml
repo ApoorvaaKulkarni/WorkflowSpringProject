@@ -26,19 +26,19 @@ jobs:
           job-status: 'success'
 
       - name: Change directory to math
-        run: cd math/pom.xml
+        run: cd math
 
       - name: Install JaCoCo
         run: wget -q https://repo1.maven.org/maven2/org/jacoco/jacoco-maven-plugin/0.8.7/jacoco-maven-plugin-0.8.7.jar -P /tmp/jacoco/ && echo 'Installation completed.'
 
       - name: Build with Maven
         run: mvn clean install
-        working-directory: math/pom.xml
+        working-directory: math
 
       - name: Run tests with JUnit
         run: mvn test
-        working-directory: math/pom.xml
+        working-directory: math
 
       - name: Generate JaCoCo report
         run: mvn jacoco:report
-        working-directory: math/pom.xml
+        working-directory: math
