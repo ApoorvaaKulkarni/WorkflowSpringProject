@@ -27,21 +27,26 @@ jobs:
       - name: Install JUnit 4
         run: |
           mvn dependency:get -Dartifact=junit:junit:4.12 -Dtransitive=false
+        working-directory: ${{ github.workspace }}
 
       - name: Install Jacoco Plugin
         run: |
           mvn dependency:get -Dartifact=org.jacoco:jacoco-maven-plugin:LATEST -Dtransitive=false
+        working-directory: ${{ github.workspace }}
 
       - name: Run Unit Tests
         run: |
           mvn clean test
+        working-directory: ${{ github.workspace }}
 
       - name: Generate Jacoco Report
         run: |
           mvn jacoco:report
+        working-directory: ${{ github.workspace }}
 
       - name: Upload Jacoco Report
         uses: actions/upload-artifact@v2
         with:
           name: jacoco-report
           path: target/site/jacoco
+        working-directory: ${{ github.workspace }}
