@@ -33,9 +33,12 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean install
+        working-directory: math/src/test/java/com/example/math/math
 
       - name: Run tests with JUnit
         run: mvn test
+        working-directory: math/src/test/java/com/example/math/math
 
       - name: Generate JaCoCo report
         run: mvn jacoco:report
+        working-directory: math/src/test/java/com/example/math/math
