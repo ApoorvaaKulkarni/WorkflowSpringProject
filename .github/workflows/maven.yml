@@ -34,7 +34,7 @@ jobs:
         run: wget -q https://repo1.maven.org/maven2/org/jacoco/jacoco-maven-plugin/0.8.7/jacoco-maven-plugin-0.8.7.jar -P /tmp/jacoco/ && echo 'Installation completed.'
 
       - name: Build with Maven
-        run: mvn -B clean package
+        run: mvn clean install
 
       - name: Run tests with JUnit
         run: mvn test
